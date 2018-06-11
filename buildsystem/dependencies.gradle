@@ -1,0 +1,89 @@
+
+ext {
+
+    //** Backend Authorization
+    BACKEND_FOOD2FORK_DEV_BASE_URL = "\"http://food2fork.com\""
+    BACKEND_FOOD2FORK_STG_BASE_URL = "\"http://food2fork.com\""
+    BACKEND_FOOD2FORK_PROD_BASE_URL = "\"http://food2fork.com\""
+
+    //Android
+    androidBuildToolsVersion = "26.0.2"
+    androidMinSdkVersion = 15
+    androidTargetSdkVersion = 26
+    androidCompileSdkVersion = 26
+
+    androidAppCompatVersion = "26.0.1"
+    androidDesignVersion = "26.0.1"
+    androidRecyclerViewVersion = '26.0.1'
+    androidMultiDexVersion = '1.0.1'
+    androidConstraintLayoutVersion = "1.0.2"
+    androidDataBindingVersion = "1.3.1"
+
+
+    /**
+     * Below we have versions of libraries used in app
+     * Common dependencies are definitions for both - app and backend modules
+     */
+    //Common Dependencies
+    daggerVersion = '2.8'
+
+    //MainApp Dependencies
+    picassoVersion = '2.5.2'
+    autofitTextViewVersion = '0.2.+'
+    butterKnifeVersion = '8.5.1'
+    circleImageViewVersion = '2.3.0'
+    numberPickerVersion='2.4.4'
+
+    //Backend Dependencies
+    okHttpVersion = '3.3.1'
+    okHttpURLConncectionVersion = '3.3.1'
+    okHttpLoggingInterceptorVersion = '3.3.1'
+    retrofit2Version = '2.1.0'
+    retrofitConverterGsonVersion = '2.1.0'
+
+    //Test Dependencies
+    testExpressoVersion = '2.2.2'
+    testJunitVersion = '4.12'
+    testRobolectric = '3.5.1'
+    testRobolectricDex = '3.4.2'
+    testMockitoVersion = '1.10.19'
+
+    androidDependencies = [
+            appCompat                   : "com.android.support:appcompat-v7:${androidAppCompatVersion}",
+            androidMultiDex             : "com.android.support:multidex:${androidMultiDexVersion}",
+            androidDesign               : "com.android.support:design:${androidDesignVersion}",
+            androidRecyclerView         : "com.android.support:recyclerview-v7:${androidRecyclerViewVersion}",
+            androidConstraintLayout     : "com.android.support.constraint:constraint-layout:${androidConstraintLayoutVersion}",
+            androidDataBindingLib       : "com.android.databinding:library:${androidDataBindingVersion}",
+            androidDataBindingAdapter   : "com.android.databinding:library:${androidDataBindingVersion}"
+    ]
+
+    mainAppDependencies = [
+            picasso                     : "com.squareup.picasso:picasso:${picassoVersion}",
+            daggerCompiler              : "com.google.dagger:dagger-compiler:${daggerVersion}",
+            dagger                      : "com.google.dagger:dagger:${daggerVersion}"
+    ]
+
+    backendDependencies = [
+            okHttp                      : "com.squareup.okhttp3:okhttp:${okHttpVersion}",
+            okHttpURLConnection         : "com.squareup.okhttp3:okhttp-urlconnection:${okHttpURLConncectionVersion}",
+            okHttpLogginInterceptor     : "com.squareup.okhttp3:logging-interceptor:${okHttpLoggingInterceptorVersion}",
+            retrofit2                   : "com.squareup.retrofit2:retrofit:${retrofit2Version}",
+            retrofit2ConverterGson      : "com.squareup.retrofit2:converter-gson:${retrofitConverterGsonVersion}",
+
+            daggerCompiler              : "com.google.dagger:dagger-compiler:${daggerVersion}",
+            dagger                      : "com.google.dagger:dagger:${daggerVersion}"
+    ]
+
+
+    testDependencies = [
+            testExpresso                : "com.android.support.test.espresso:espresso-core:${testExpressoVersion}",
+            testJUnit                   : "junit:junit:${testJunitVersion}",
+            testRobolectric             : "org.robolectric:robolectric:${testRobolectric}",
+            testRobolectricMulti        : "org.robolectric:multidex:${testRobolectricDex}",
+            testRobolectricSup          : "org.robolectric:shadows-supportv4:${testRobolectric}",
+            testRobolectricHttp         : "org.robolectric:shadows-httpclient:${testRobolectric}",
+            testMockito                 : "org.mockito:mockito-core:${testMockitoVersion}"
+    ]
+
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="appGray">#999</color>
+    <color name="appBlack">#000</color>
+    <color name="appWhite">#FFF</color>
+
+    <!-- Top Navigation -->
+    <color name="top_navigation_status_bar_background_color">@color/appBlack</color>
+    <color name="top_navigation_background_color">@color/appWhite</color>
+</resources>

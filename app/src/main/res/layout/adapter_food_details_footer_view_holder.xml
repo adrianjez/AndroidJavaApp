@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="foodDetailsPresenter"
+            type="com.adrian.testapp.ui.details.FoodDetailsContract.Presenter" />
+
+        <variable
+            name="foodEntity"
+            type="com.adrian.backend.domain.FoodDetailsEntity" />
+
+
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/appGray"
+            android:padding="3dp"
+            android:text="@string/adapter_food_details_footer_INFO" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="@string/adapter_food_details_footer_View_Instructions"
+            android:textSize="25sp"
+            android:onClick="@{() -> foodDetailsPresenter.viewInstructionsClicked(foodEntity)}"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="@string/adapter_food_details_footer_View_Original"
+            android:textSize="25sp"
+            android:onClick="@{() -> foodDetailsPresenter.viewOriginalClicked(foodEntity)}"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="3dp"
+                android:text="@{foodEntity.publisher}"
+                />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="3dp"
+                android:text="Social Rank:" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="3dp"
+                android:text="@{String.valueOf(foodEntity.socialRank)}" />
+
+        </LinearLayout>
+    </LinearLayout>
+</layout>

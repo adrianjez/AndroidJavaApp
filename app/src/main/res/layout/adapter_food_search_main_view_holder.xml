@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="presenter"
+            type="com.adrian.testapp.ui.search.FoodSearchContract.Presenter"/>
+
+        <variable
+            name="foodEntity"
+            type="com.adrian.backend.domain.FoodEntity"/>
+
+    </data>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:gravity="center"
+        android:onClick="@{() -> presenter.onFoodSelected(foodEntity)}">
+
+        <ImageView
+            android:id="@+id/adapter_food_search_main_view_holder_image_view"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:scaleType="centerCrop"
+            app:srcUrl="@{foodEntity.imageUrl}"/>
+
+        <TextView
+            android:id="@+id/adapter_food_search_main_view_holder_text_content"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{foodEntity.title}"
+            android:layout_margin="7dp"/>
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/arrow_right"
+            android:tint="@color/appGray"/>
+
+    </LinearLayout>
+</layout>

@@ -1,0 +1,95 @@
+apply plugin: 'com.android.application'
+
+android {
+    def globalConfiguration = rootProject.extensions.getByName("ext")
+
+    compileSdkVersion globalConfiguration.getAt("androidCompileSdkVersion")
+    buildToolsVersion globalConfiguration.getAt("androidBuildToolsVersion")
+    defaultConfig {
+        minSdkVersion globalConfiguration.getAt("androidMinSdkVersion")
+        targetSdkVersion globalConfiguration.getAt("androidTargetSdkVersion")
+        applicationId globalConfiguration.getAt("androidApplicationId")
+        versionCode globalConfiguration.getAt("androidVersionCode")
+        versionName globalConfiguration.getAt("androidVersionName")
+        multiDexEnabled true
+    }
+    dataBinding {
+        enabled = true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+    packagingOptions {
+        exclude 'LICENSE.txt'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/ASL2.0'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/rxjava.properties'
+        exclude 'jsr305_annotations/Jsr305_annotations.gwt.xml'
+    }
+
+    flavorDimensions "mainApp"
+
+    productFlavors {
+        DEV {
+            dimension "mainApp"
+            buildConfigField "String", "wsFood2ForkURL", globalConfiguration.BACKEND_FOOD2FORK_DEV_BASE_URL
+            buildConfigField "String", "food2forkAPIKey", "\"b549c4c96152e677eb90de4604ca61a2\""
+        }
+        STG {
+            dimension "mainApp"
+            buildConfigField "String", "wsFood2ForkURL", globalConfiguration.BACKEND_FOOD2FORK_DEV_BASE_URL
+            buildConfigField "String", "food2forkAPIKey", "\"b549c4c96152e677eb90de4604ca61a2\""
+        }
+        PROD {
+            dimension "mainApp"
+            buildConfigField "String", "wsFood2ForkURL", globalConfiguration.BACKEND_FOOD2FORK_DEV_BASE_URL
+            buildConfigField "String", "food2forkAPIKey", "\"b549c4c96152e677eb90de4604ca61a2\""
+        }
+    }
+}
+
+dependencies {
+
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation project(':backend_food2work')
+
+    /** Android dependencies **/
+    def androidDependencies = rootProject.ext.androidDependencies
+    implementation androidDependencies.appCompat
+    implementation androidDependencies.androidDesign
+    implementation androidDependencies.androidRecyclerView
+    implementation androidDependencies.androidMultiDex
+    implementation androidDependencies.androidRecyclerView
+    implementation androidDependencies.androidConstraintLayout
+    implementation androidDependencies.androidDataBindingLib
+    implementation androidDependencies.androidDataBindingAdapter
+
+    /** Main app Dependencies **/
+    def mainAppDependencies = rootProject.ext.mainAppDependencies
+    implementation mainAppDependencies.picasso
+    implementation mainAppDependencies.dagger
+
+    /** Annotation processors **/
+    annotationProcessor mainAppDependencies.daggerCompiler
+
+    // Test dependencies
+    def testDependecies = rootProject.ext.testDependencies
+    androidTestImplementation testDependecies.testExpresso
+    testImplementation testDependencies.testJUnit
+    testImplementation testDependencies.testRobolectric
+    testImplementation testDependencies.testRobolectricMulti
+    testImplementation testDependencies.testRobolectricSup
+    testImplementation testDependencies.testRobolectricHttp
+    testImplementation testDependencies.testMockito
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+}

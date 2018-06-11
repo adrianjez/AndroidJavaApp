@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Test App</string>
+
+    <!-- Toolbar strings -->
+    <string name="toolbar_back">Back</string>
+
+    <!-- adapter_food_details_header_view_holder -->
+    <string name="adapter_food_details_header_INGREDIENTS">INGREDIENTS</string>
+
+    <!-- adapter_food_details_footer_view_holder -->
+    <string name="adapter_food_details_footer_INFO">INFO</string>
+    <string name="adapter_food_details_footer_View_Instructions">View Instructions</string>
+    <string name="adapter_food_details_footer_View_Original">View Original</string>
+</resources>
